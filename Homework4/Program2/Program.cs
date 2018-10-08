@@ -137,10 +137,15 @@ namespace Program2
         public int InputSearchFlag()
         {
             int tag = 0;
-            Console.WriteLine("请输入要查找的项目:1.订单号 2.用户名 3.产品名 4.产品单价 5.产品数目 6.取消");
+            Console.WriteLine("请输入要查找的项目:1.订单号 2.用户名 3.产品名 4.产品单价 5.产品数目");
             try
             {
                 tag = int.Parse(Console.ReadLine());
+                if (!(tag >= 1 && tag <= 6))
+                {
+                    Console.WriteLine("输入错误！");
+                    InputSearchFlag();
+                }
                 return tag;
             }
             catch (Exception e)
@@ -194,9 +199,6 @@ namespace Program2
                     }
                     o = SearchByNumOfProduct(int.Parse(s));
                     break;
-                case 6:
-
-                    break;
             }
             return o;
         }
@@ -207,6 +209,11 @@ namespace Program2
             {
                 Console.WriteLine("请输入所需的订单序号:");
                 temp = int.Parse(Console.ReadLine());
+                if (!(temp >= 1 && temp <= num))
+                {
+                    Console.WriteLine("输入错误！");
+                    InputTag();
+                }
                 return temp;
             }catch(Exception e)
             {
@@ -248,6 +255,11 @@ namespace Program2
             try
             {
                 tag = int.Parse(Console.ReadLine());
+                if (!(tag >= 1 && tag <= 5))
+                {
+                    Console.WriteLine("输入错误！");
+                    InputChangeFlag();
+                }
                 return tag;
             }catch(Exception e)
             {
@@ -309,6 +321,11 @@ namespace Program2
             try
             {
                 tag = int.Parse(Console.ReadLine());
+                if(! ( tag >= 1 && tag <= 5))
+                {
+                    Console.WriteLine("输入错误！");
+                    InputControlFlag();
+                }
                 return tag;
             }
             catch (Exception e)
