@@ -1,0 +1,22 @@
+E:\workspace\CSharp\Homework4\Program1\bin\Debug\netcoreapp2.0\Program1.deps.json
+E:\workspace\CSharp\Homework4\Program1\bin\Debug\netcoreapp2.0\Program1.runtimeconfig.json
+E:\workspace\CSharp\Homework4\Program1\bin\Debug\netcoreapp2.0\Program1.runtimeconfig.dev.json
+E:\workspace\CSharp\Homework4\Program1\bin\Debug\netcoreapp2.0\Program1.dll
+E:\workspace\CSharp\Homework4\Program1\bin\Debug\netcoreapp2.0\Program1.pdb
+E:\workspace\CSharp\Homework4\Program1\obj\Debug\netcoreapp2.0\Program1.csprojResolveAssemblyReference.cache
+E:\workspace\CSharp\Homework4\Program1\obj\Debug\netcoreapp2.0\Program1.csproj.CoreCompileInputs.cache
+E:\workspace\CSharp\Homework4\Program1\obj\Debug\netcoreapp2.0\Program1.AssemblyInfoInputs.cache
+E:\workspace\CSharp\Homework4\Program1\obj\Debug\netcoreapp2.0\Program1.AssemblyInfo.cs
+E:\workspace\CSharp\Homework4\Program1\obj\Debug\netcoreapp2.0\Program1.dll
+E:\workspace\CSharp\Homework4\Program1\obj\Debug\netcoreapp2.0\Program1.pdb
+F:\C sharp\Homework4\Program1\bin\Debug\netcoreapp2.0\Program1.deps.json
+F:\C sharp\Homework4\Program1\bin\Debug\netcoreapp2.0\Program1.runtimeconfig.json
+F:\C sharp\Homework4\Program1\bin\Debug\netcoreapp2.0\Program1.runtimeconfig.dev.json
+F:\C sharp\Homework4\Program1\bin\Debug\netcoreapp2.0\Program1.dll
+F:\C sharp\Homework4\Program1\bin\Debug\netcoreapp2.0\Program1.pdb
+F:\C sharp\Homework4\Program1\obj\Debug\netcoreapp2.0\Program1.csprojAssemblyReference.cache
+F:\C sharp\Homework4\Program1\obj\Debug\netcoreapp2.0\Program1.csproj.CoreCompileInputs.cache
+F:\C sharp\Homework4\Program1\obj\Debug\netcoreapp2.0\Program1.AssemblyInfoInputs.cache
+F:\C sharp\Homework4\Program1\obj\Debug\netcoreapp2.0\Program1.AssemblyInfo.cs
+F:\C sharp\Homework4\Program1\obj\Debug\netcoreapp2.0\Program1.dll
+F:\C sharp\Homework4\Program1\obj\Debug\netcoreapp2.0\Program1.pdb
