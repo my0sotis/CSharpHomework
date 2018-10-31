@@ -36,23 +36,25 @@ namespace Program
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.MenuTool = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuTool1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuTool2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuTool3 = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.OrderGridView = new System.Windows.Forms.DataGridView();
             this.OrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderbindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.OrderDetailGridView = new System.Windows.Forms.DataGridView();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numOfProductDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceOfProductDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderDetail = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.clientNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderbindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numOfProductDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceOfProductDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderDetail = new System.Windows.Forms.BindingSource(this.components);
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -60,10 +62,10 @@ namespace Program
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OrderbindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDetailGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OrderDetail)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.OrderbindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrderDetail)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -98,7 +100,9 @@ namespace Program
             // MenuTool
             // 
             this.MenuTool.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuTool1});
+            this.MenuTool1,
+            this.MenuTool2,
+            this.MenuTool3});
             this.MenuTool.Name = "MenuTool";
             this.MenuTool.Size = new System.Drawing.Size(51, 24);
             this.MenuTool.Text = "菜单";
@@ -106,9 +110,23 @@ namespace Program
             // MenuTool1
             // 
             this.MenuTool1.Name = "MenuTool1";
-            this.MenuTool1.Size = new System.Drawing.Size(144, 26);
+            this.MenuTool1.Size = new System.Drawing.Size(181, 26);
             this.MenuTool1.Text = "添加订单";
             this.MenuTool1.Click += new System.EventHandler(this.MenuTool1_Click);
+            // 
+            // MenuTool2
+            // 
+            this.MenuTool2.Name = "MenuTool2";
+            this.MenuTool2.Size = new System.Drawing.Size(181, 26);
+            this.MenuTool2.Text = "修改订单";
+            this.MenuTool2.Click += new System.EventHandler(this.MenuTool2_Click);
+            // 
+            // MenuTool3
+            // 
+            this.MenuTool3.Name = "MenuTool3";
+            this.MenuTool3.Size = new System.Drawing.Size(181, 26);
+            this.MenuTool3.Text = "显示所有订单";
+            this.MenuTool3.Click += new System.EventHandler(this.MenuTool3_Click);
             // 
             // splitContainer1
             // 
@@ -144,34 +162,13 @@ namespace Program
             this.OrderGridView.RowTemplate.Height = 27;
             this.OrderGridView.Size = new System.Drawing.Size(1006, 235);
             this.OrderGridView.TabIndex = 2;
+            this.OrderGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrderGridView_CellClick);
             // 
             // OrderId
             // 
             this.OrderId.DataPropertyName = "OrderId";
             this.OrderId.HeaderText = "OrderId";
             this.OrderId.Name = "OrderId";
-            // 
-            // clientNameDataGridViewTextBoxColumn
-            // 
-            this.clientNameDataGridViewTextBoxColumn.DataPropertyName = "ClientName";
-            this.clientNameDataGridViewTextBoxColumn.HeaderText = "ClientName";
-            this.clientNameDataGridViewTextBoxColumn.Name = "clientNameDataGridViewTextBoxColumn";
-            // 
-            // productCategoryDataGridViewTextBoxColumn
-            // 
-            this.productCategoryDataGridViewTextBoxColumn.DataPropertyName = "ProductCategory";
-            this.productCategoryDataGridViewTextBoxColumn.HeaderText = "ProductCategory";
-            this.productCategoryDataGridViewTextBoxColumn.Name = "productCategoryDataGridViewTextBoxColumn";
-            // 
-            // totalPriceDataGridViewTextBoxColumn
-            // 
-            this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "TotalPrice";
-            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "TotalPrice";
-            this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
-            // 
-            // OrderbindingSource
-            // 
-            this.OrderbindingSource.DataSource = typeof(Order.Order);
             // 
             // OrderDetailGridView
             // 
@@ -188,28 +185,6 @@ namespace Program
             this.OrderDetailGridView.RowTemplate.Height = 27;
             this.OrderDetailGridView.Size = new System.Drawing.Size(1006, 168);
             this.OrderDetailGridView.TabIndex = 0;
-            // 
-            // productNameDataGridViewTextBoxColumn
-            // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            // 
-            // numOfProductDataGridViewTextBoxColumn
-            // 
-            this.numOfProductDataGridViewTextBoxColumn.DataPropertyName = "NumOfProduct";
-            this.numOfProductDataGridViewTextBoxColumn.HeaderText = "NumOfProduct";
-            this.numOfProductDataGridViewTextBoxColumn.Name = "numOfProductDataGridViewTextBoxColumn";
-            // 
-            // priceOfProductDataGridViewTextBoxColumn
-            // 
-            this.priceOfProductDataGridViewTextBoxColumn.DataPropertyName = "PriceOfProduct";
-            this.priceOfProductDataGridViewTextBoxColumn.HeaderText = "PriceOfProduct";
-            this.priceOfProductDataGridViewTextBoxColumn.Name = "priceOfProductDataGridViewTextBoxColumn";
-            // 
-            // OrderDetail
-            // 
-            this.OrderDetail.DataSource = typeof(Order.OrderDetails);
             // 
             // panel1
             // 
@@ -267,6 +242,50 @@ namespace Program
             this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // clientNameDataGridViewTextBoxColumn
+            // 
+            this.clientNameDataGridViewTextBoxColumn.DataPropertyName = "ClientName";
+            this.clientNameDataGridViewTextBoxColumn.HeaderText = "ClientName";
+            this.clientNameDataGridViewTextBoxColumn.Name = "clientNameDataGridViewTextBoxColumn";
+            // 
+            // productCategoryDataGridViewTextBoxColumn
+            // 
+            this.productCategoryDataGridViewTextBoxColumn.DataPropertyName = "ProductCategory";
+            this.productCategoryDataGridViewTextBoxColumn.HeaderText = "ProductCategory";
+            this.productCategoryDataGridViewTextBoxColumn.Name = "productCategoryDataGridViewTextBoxColumn";
+            // 
+            // totalPriceDataGridViewTextBoxColumn
+            // 
+            this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "TotalPrice";
+            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "TotalPrice";
+            this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
+            // 
+            // OrderbindingSource
+            // 
+            this.OrderbindingSource.DataSource = typeof(Order.Order);
+            // 
+            // productNameDataGridViewTextBoxColumn
+            // 
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            // 
+            // numOfProductDataGridViewTextBoxColumn
+            // 
+            this.numOfProductDataGridViewTextBoxColumn.DataPropertyName = "NumOfProduct";
+            this.numOfProductDataGridViewTextBoxColumn.HeaderText = "NumOfProduct";
+            this.numOfProductDataGridViewTextBoxColumn.Name = "numOfProductDataGridViewTextBoxColumn";
+            // 
+            // priceOfProductDataGridViewTextBoxColumn
+            // 
+            this.priceOfProductDataGridViewTextBoxColumn.DataPropertyName = "PriceOfProduct";
+            this.priceOfProductDataGridViewTextBoxColumn.HeaderText = "PriceOfProduct";
+            this.priceOfProductDataGridViewTextBoxColumn.Name = "priceOfProductDataGridViewTextBoxColumn";
+            // 
+            // OrderDetail
+            // 
+            this.OrderDetail.DataSource = typeof(Order.OrderDetails);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -289,11 +308,11 @@ namespace Program
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.OrderGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OrderbindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDetailGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OrderDetail)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.OrderbindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrderDetail)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -323,6 +342,8 @@ namespace Program
         private DataGridViewTextBoxColumn clientNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn productCategoryDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
+        private ToolStripMenuItem MenuTool2;
+        private ToolStripMenuItem MenuTool3;
     }
 }
 

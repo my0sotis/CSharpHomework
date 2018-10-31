@@ -18,32 +18,40 @@ namespace Program
         {
             if (CheckNullAllTextBox() == true)
             {
-                CheckNum(textBox1);
-                CheckNum(textBox3);
+                if(!(CheckNum(textBox1) && CheckNum(textBox3)))
+                {
+                    return;
+                }
                 Order.Order order = new Order.Order(textBox1.Text, textBox2.Text, uint.Parse(textBox3.Text));
                 uint t = uint.Parse(textBox3.Text);
                 for (int i = 0; i < t; i++)
                 {
                     if (i == 0)
                     {
-                        CheckNum(textBox5);
-                        CheckNum(textBox10);
+                        if (!(CheckNum(textBox5) && CheckNum(textBox10)))
+                        {
+                            return;
+                        }
                         Order.OrderDetails od = new Order.OrderDetails(textBox4.Text, int.Parse(textBox5.Text), int.Parse(textBox10.Text));
                         order.AddOrderDetails(od);
                         order.TotalPrice += int.Parse(textBox5.Text) * int.Parse(textBox10.Text);
                     }
                     else if (i == 1)
                     {
-                        CheckNum(textBox6);
-                        CheckNum(textBox11);
+                        if (!(CheckNum(textBox6) && CheckNum(textBox11)))
+                        {
+                            return;
+                        }
                         Order.OrderDetails od = new Order.OrderDetails(textBox7.Text, int.Parse(textBox6.Text), int.Parse(textBox11.Text));
                         order.AddOrderDetails(od);
                         order.TotalPrice += int.Parse(textBox6.Text) * int.Parse(textBox11.Text);
                     }
                     else
                     {
-                        CheckNum(textBox8);
-                        CheckNum(textBox12);
+                        if (!(CheckNum(textBox8) && CheckNum(textBox12)))
+                        {
+                            return;
+                        }
                         Order.OrderDetails od = new Order.OrderDetails(textBox9.Text, int.Parse(textBox8.Text), int.Parse(textBox12.Text));
                         order.AddOrderDetails(od);
                         order.TotalPrice += int.Parse(textBox8.Text) * int.Parse(textBox12.Text);
@@ -58,7 +66,7 @@ namespace Program
             }
         }
 
-        private void CheckNum(TextBox textBox)
+        private bool CheckNum(TextBox textBox)
         {
             try
             {
@@ -67,7 +75,9 @@ namespace Program
             {
                 MessageBox.Show(e.Message, textBox.Tag + "输入错误！", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBox.Text = null;
+                return false;
             }
+            return true;
         }
 
         private bool CheckNull(TextBox textBox)

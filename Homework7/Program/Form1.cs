@@ -38,7 +38,7 @@ namespace Program
             AddOrderForm addOrderForm = new AddOrderForm();
             addOrderForm.TransfEvent += AddOrderForm_Add;
             addOrderForm.ShowDialog();
-            OrderbindingSource.DataSource = os.SearchByClientName("qw");
+            OrderbindingSource.DataSource = os.SearchByClientName();
         }
 
         private void AddOrderForm_Add(Order.Order value)
@@ -174,6 +174,25 @@ namespace Program
                 MessageBox.Show(e.Message, "输入错误！", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBox.Text = null;
             }
+        }
+
+        private void MenuTool2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OrderGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //获取当前点击的订单号
+            string value = OrderGridView.Rows[OrderGridView.CurrentRow.Index].Cells[0].Value.ToString();
+            Order.Order order = os.SearchByOrderNum(int.Parse(value))[0];
+            OrderDetailGridView.DataSource = order.ListOfDetails;           //显示该订单
+        }
+
+        private void MenuTool3_Click(object sender, EventArgs e)
+        {
+            //显示所有订单
+            OrderGridView.DataSource = os.SearchByOrderNum();
         }
     }
 }
