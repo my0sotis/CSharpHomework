@@ -17,6 +17,8 @@ namespace Program
         public string control { set; get; }
         public string flag { set; get; }
         public string content { set; get; }
+        BindingSource b = new BindingSource();
+
 
         public Form1()
         {
@@ -38,7 +40,8 @@ namespace Program
             AddOrderForm addOrderForm = new AddOrderForm();
             addOrderForm.TransfEvent += AddOrderForm_Add;
             addOrderForm.ShowDialog();
-            OrderbindingSource.DataSource = os.SearchByClientName();
+            b.DataSource =new BindingList<Order.Order>(os.ListOfOrder);
+            OrderbindingSource.DataSource = b;
         }
 
         private void AddOrderForm_Add(Order.Order value)
@@ -63,13 +66,14 @@ namespace Program
         private void button1_Click(object sender, EventArgs e)
         {
             List<Order.Order> list = new List<Order.Order>();
+            b.DataSource = new BindingList<Order.Order>(os.ListOfOrder);
             if (textBox1.Text != null)
             {
+                string s = textBox1.Text;
                 if (control == "查询订单")
                 {
                     if (flag == "订单号")
                     {
-                        CheckNum(textBox1);
                         list = os.SearchByOrderNum(int.Parse(content));
                         if (CheckListNull(list) == true)
                             OrderbindingSource.DataSource = list;
@@ -82,24 +86,22 @@ namespace Program
                     }
                     else if(flag == "总价高于所输入值的")
                     {
-                        CheckNum(textBox1);
                         list = os.SearchByWhichTotalPriceOver(int.Parse(textBox1.Text));
                         if (CheckListNull(list) == true)
                             OrderbindingSource.DataSource = list;
                     }
                     else
                     {
-                        CheckNum(textBox1);
                         list = os.SearchByProductName(textBox1.Text);
                         if (CheckListNull(list) == true)
                             OrderbindingSource.DataSource = list;
                     }
+                    label1.Text = "你所搜到的订单数目为" + list.Capacity;
                 }
                 else
                 {
                     if (flag == "订单号")
                     {
-                        CheckNum(textBox1);
                         list = os.SearchByOrderNum(int.Parse(content));
                         if (CheckListNull(list) == true)
                         {
@@ -107,7 +109,7 @@ namespace Program
                             {
                                 os.ListOfOrder.Remove(o);
                             }
-                            OrderbindingSource.DataSource = os.SearchByClientName();
+                            OrderbindingSource.DataSource = b;
                         }
                     }
                     else if (flag == "用户名")
@@ -119,12 +121,11 @@ namespace Program
                             {
                                 os.ListOfOrder.Remove(o);
                             }
-                            OrderbindingSource.DataSource = os.SearchByClientName();
+                            OrderbindingSource.DataSource = b;
                         }
                     }
                     else if (flag == "总价高于所输入值的")
                     {
-                        CheckNum(textBox1);
                         list = os.SearchByWhichTotalPriceOver(int.Parse(textBox1.Text));
                         if (CheckListNull(list) == true)
                         {
@@ -132,12 +133,11 @@ namespace Program
                             {
                                 os.ListOfOrder.Remove(o);
                             }
-                            OrderbindingSource.DataSource = os.SearchByClientName();
+                            OrderbindingSource.DataSource = b;
                         }
                     }
                     else
                     {
-                        CheckNum(textBox1);
                         list = os.SearchByProductName(textBox1.Text);
                         if (CheckListNull(list) == true)
                         {
@@ -145,7 +145,7 @@ namespace Program
                             {
                                 os.ListOfOrder.Remove(o);
                             }
-                            OrderbindingSource.DataSource = os.SearchByClientName();
+                            OrderbindingSource.DataSource = b;
                         }
                     }
                 }
@@ -164,21 +164,21 @@ namespace Program
             return true;
         }
 
-        private void CheckNum(TextBox textBox)
+        //检测错误时，总是出现虽然输入是数字，但提示格式错误
+        private bool CheckNum(TextBox textBox)
         {
-            try
+            int t = 0;
+            if (int.TryParse(textBox.Text,out t))
             {
-                int t = int.Parse(textBox.Text);
-            }catch(Exception e)
-            {
-                MessageBox.Show(e.Message, "输入错误！", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                textBox.Text = null;
+                return true;
             }
-        }
-
-        private void MenuTool2_Click(object sender, EventArgs e)
-        {
-
+            else
+            {
+                MessageBox.Show("输入错误的值。", "输入错误！", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                textBox.Text = null;
+                return false;
+            }
+            
         }
 
         private void OrderGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -192,7 +192,21 @@ namespace Program
         private void MenuTool3_Click(object sender, EventArgs e)
         {
             //显示所有订单
-            OrderGridView.DataSource = os.SearchByOrderNum();
+            b.DataSource = new BindingList<Order.Order>(os.ListOfOrder);
+            OrderGridView.DataSource = b;
+        }
+
+        private void 修改订单ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string value = OrderGridView.Rows[OrderGridView.CurrentRow.Index].Cells[0].Value.ToString();
+            Order.Order order = os.SearchByOrderNum(int.Parse(value))[0];
+            Order.Order o = os.SearchByOrderNum(int.Parse(value))[0];
+            ChangeOrderForm changeOrderForm = new ChangeOrderForm(o);
+            changeOrderForm.ShowDialog();
+            os.ListOfOrder.Add(o);
+            os.ListOfOrder.Remove(order);
+            b.DataSource = new BindingList<Order.Order>(os.ListOfOrder);
+            OrderbindingSource.DataSource = b;
         }
     }
 }
