@@ -246,45 +246,6 @@ namespace Order
             }
         }
 
-        private void createMySQLToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CreateMySqlDatabase();
-        }
-
-        private void CreateMySqlDatabase()
-        {
-            try
-            {
-                // UserId为MySQL用户名，PWD为密码
-                string createOrderListStatement = "CREATE TABLE OrderList(" +
-                    "OrderId VARCHAR(11) PRIMARY KEY, ClientName VARCHAR(20), " +
-                    "ClientPhoneNumber VARCHAR(11), ProductCategory SMALLINT UNSIGNED, TotalPrice INT UNSIGNED);";
-                string createOrderDetailsStatement = "CREATE TABLE OrderDetails(" +
-                    "ProductName VARCHAR(20), PriceOfProduct INT UNSIGNED, NumOfProduct INT UNSIGNED," +
-                    "orderid VARCHAR(11) PRIMARY KEY, FOREIGN KEY (orderid) REFERENCES OrderList (OrderId) ON DELETE CASCADE);";
-                using (MySqlConnection connection = new MySqlConnection("Data Source = localhost;Persist Security Info = yes;" +
-                    "UserId = root;PWD=159357258"))
-                {
-                    connection.Open();
-
-                    // ListOfOrder为数据库名称，创建一个数据库并使用这个数据库
-                    using (MySqlCommand cmd = new MySqlCommand("CREATE DATABASE IF NOT EXISTS ListOfOrder; USE ListOfOrder;", connection))
-                        cmd.ExecuteNonQuery();
-                    connection.ChangeDatabase("ListOfOrder");
-                    // 创建订单列表
-                    using (MySqlCommand cmd = new MySqlCommand(createOrderListStatement, connection))
-                        cmd.ExecuteNonQuery();
-                    // 创建订单详情列表
-                    using (MySqlCommand cmd = new MySqlCommand(createOrderDetailsStatement, connection))
-                        cmd.ExecuteNonQuery();
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "生成错误!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
         private void DeleteMySqlDatabase()
         {
             try
@@ -302,11 +263,6 @@ namespace Order
             {
                 MessageBox.Show(e.Message, "删除失败！", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        private void createMySQLDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CreateMySqlDatabase();
         }
 
         private void deleteMySQLDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
