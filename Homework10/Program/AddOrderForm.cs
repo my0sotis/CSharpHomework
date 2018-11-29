@@ -57,7 +57,7 @@ namespace Order
                         totalPrice += int.Parse(textBox8.Text) * int.Parse(textBox12.Text);
                     }
                 }
-                OrderList order = new OrderList(textBox1.Text, textBox2.Text, textBox13.Text, int.Parse(textBox3.Text), details);
+                OrderList order = new OrderList(textBox1.Text, textBox2.Text, textBox13.Text, int.Parse(textBox3.Text), details, totalPrice);
                 TransfEvent(order);
                 Close();
             }

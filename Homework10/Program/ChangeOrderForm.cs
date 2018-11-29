@@ -41,55 +41,29 @@ namespace Order
             {
                 string s = textBox1.Text;
                 if (comboBox1.Text == "订单号")
-                {
-                    //if (CheckNum(textBox1) == false)
-                    //    return;
                     order.OrderId = s;
-                }
                 else if (comboBox1.Text == "用户名")
                     order.ClientName = s;
                 else if (comboBox1.Text == "订单1名称")
                     order.ListOfDetails[0].ProductName = s;
                 else if (comboBox1.Text == "订单1数目")
-                {
-                    //if (CheckNum(textBox1) == false)
-                    //    return;
                     order.ListOfDetails[0].NumOfProduct = int.Parse(s);
-                }
                 else if(comboBox1.Text == "订单1价格")
-                {
-                    //if (CheckNum(textBox1) == false)
-                    //    return;
                     order.ListOfDetails[0].PriceOfProduct = int.Parse(s);
-                }
                 else if (comboBox1.Text == "订单2名称")
                     order.ListOfDetails[1].ProductName = s;
                 else if (comboBox1.Text == "订单2数目")
-                {
-                    //if (CheckNum(textBox1) == false)
-                    //    return;
                     order.ListOfDetails[1].NumOfProduct = int.Parse(s);
-                }
                 else if (comboBox1.Text == "订单2价格")
-                {
-                    //if (CheckNum(textBox1) == false)
-                    //    return;
                     order.ListOfDetails[1].PriceOfProduct = int.Parse(s);
-                }
                 else if (comboBox1.Text == "订单3名称")
                     order.ListOfDetails[2].ProductName = s;
                 else if (comboBox1.Text == "订单3数目")
-                {
-                    //if (CheckNum(textBox1) == false)
-                    //    return;
                     order.ListOfDetails[2].NumOfProduct = int.Parse(s);
-                }
                 else if (comboBox1.Text == "订单3价格")
-                {
-                    //if (CheckNum(textBox1) == false)
-                    //    return;
                     order.ListOfDetails[2].PriceOfProduct = int.Parse(s);
-                }
+                else if(comboBox1.Text == "用户手机号")
+                    order.ClientPhoneNumber = s;
                 this.Close();
             }
             else

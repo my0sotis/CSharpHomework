@@ -32,13 +32,14 @@ namespace Order
             ListOfDetails = new List<OrderDetails>();
         }
 
-        public OrderList(string id, string name, string pnum, int cate, List<OrderDetails> details)
+        public OrderList(string id, string name, string pnum, int cate, List<OrderDetails> details, int toprice)
         {
             OrderId = id;
             ClientName = name;
             ClientPhoneNumber = pnum;
             ProductCategory = cate;
             ListOfDetails = details;
+            TotalPrice = toprice;
         }
     }
 }

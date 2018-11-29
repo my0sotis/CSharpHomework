@@ -41,6 +41,8 @@ namespace Order
                 AddOrderForm addOrderForm = new AddOrderForm(list);
                 addOrderForm.TransfEvent += AddOrderForm_Add;
                 addOrderForm.ShowDialog();
+                order = from t in db.Order select t;
+                list = order.ToList();
                 b.DataSource = new BindingList<OrderList>(list);
                 OrderbindingSource.DataSource = b;
             }
@@ -97,6 +99,8 @@ namespace Order
                         {
                             foreach (OrderList o in list)
                                 os.Delete(o.OrderId);
+                            orders = from t in db.Order select t;
+                            list = orders.ToList();
                             OrderbindingSource.DataSource = b;
                         }
                     }

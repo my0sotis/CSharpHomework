@@ -15,9 +15,7 @@ namespace Order
         {
             using (var db = new OrderDB())
             {
-                //db.Order.Add(order);
-                db.Order.Attach(order);
-                db.Entry(order).State = EntityState.Added;
+                db.Order.Add(order);
                 db.SaveChanges();
             }
         }

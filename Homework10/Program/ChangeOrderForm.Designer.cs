@@ -60,7 +60,8 @@
             "订单2价格",
             "订单3名称",
             "订单3数目",
-            "订单3价格"});
+            "订单3价格",
+            "用户手机号"});
             this.comboBox1.Location = new System.Drawing.Point(268, 80);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 23);

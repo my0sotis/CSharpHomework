@@ -85,6 +85,11 @@
     <Compile Include="ChangeOrderForm.Designer.cs">
       <DependentUpon>ChangeOrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrderDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="OrderDetails.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -116,9 +121,21 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="OrderDataSet1.xsc">
+      <DependentUpon>OrderDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="OrderDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OrderDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OrderDataSet1.xss">
+      <DependentUpon>OrderDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Order.Order.datasource" />
     <None Include="Properties\DataSources\Order.OrderDetails.datasource" />
+    <None Include="Properties\DataSources\Order.OrderList.datasource" />
     <None Include="Properties\DataSources\Order.OrderService.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
