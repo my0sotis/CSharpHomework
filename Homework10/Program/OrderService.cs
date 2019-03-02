@@ -10,7 +10,6 @@ namespace Order
 {
     public class OrderService
     {
-        public int num = 0;
         public void Add(OrderList order)
         {
             using (var db = new OrderDB())

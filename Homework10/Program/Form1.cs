@@ -29,6 +29,7 @@ namespace Order
             comboBox2.SelectedIndex = comboBox2.Items.IndexOf("订单号");
             OrderGridView.ReadOnly = true;
 
+
             //CreateMySqlDatabase();
         }
 

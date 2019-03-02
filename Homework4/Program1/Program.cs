@@ -30,7 +30,7 @@ namespace Program1
         {
             Console.Write("输入时：");
             AlarmHour = int.Parse(Console.ReadLine());
-            if(!(AlarmHour>=0&&AlarmHour<=23))
+            if(!(AlarmHour>=0 && AlarmHour<=23))
             {
                 Console.Write("输入错误，请重新");
                 AlarmHour = 0;
